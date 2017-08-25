@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>My Restaurant App</h1>
+<a href = '#'>Create a new restaurant</a>
+{% for restaurant in restaurants %}
+    <p>{{restaurant.name}}</p>
+<a href = '#'>Edit Restaurant</a></br>
+<a href = '#'>Delete Restaurant</a>
+{% endfor %}
+
+</body>
+</html>

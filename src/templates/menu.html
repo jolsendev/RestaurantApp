@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Menu Items</h1>
+
+{% for menu_item in menu_items %}
+
+    <p>{{menu_item.name}}</p>
+    <p>{{menu_item.description}}</p>
+    <p>{{menu_item.price}}</p>
+    <p>{{menu_item.course}}</p>
+
+{% endfor %}
+</body>
+</html>

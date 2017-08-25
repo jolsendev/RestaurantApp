@@ -1,0 +1,39 @@
+mock-ups
+
+routing
+
+show all restaurants
+/restaurants (and'/')
+
+create a new restaurant
+/restaurant/new
+
+edit & restaurant
+restaurant/<int:restaurant_id>/edit
+
+delete a restaurant
+restaurant/<int:restaurant_id>/delete
+
+show a restaurant menu
+/restaurants/<int:restaurant_id>/menu
+
+create a new menu item
+/restaurants/<int:restaurant_id>/menu/new
+
+edit a menu item
+/restaurant/<int:restaurant_id>/menu/edit
+
+delete a menu item
+/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete
+
+
+
+templates and forms
+
+CRUD functionality
+
+
+API Endpoints
+
+
+styling & message flashing

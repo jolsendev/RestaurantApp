@@ -48,7 +48,7 @@ def editRestaurant(restaurant_id):
         session.commit()
         return redirect(url_for('all_restaurants'))
     else:
-        return render_template('editRestaurant.html', restaurant_id=restaurant_id)
+        return render_template('editRestaurant.html', restaurant_id=restaurant.id, restaurant_name=restaurant.name)
 
 
 # delete a restaurant
@@ -67,7 +67,8 @@ def deleteRestaurant(restaurant_id):
 # show a restaurant menu
 @app.route('/restaurants/<int:restaurant_id>/menu/')
 def showMenu(restaurant_id):
-    return "Not Implemented "+str(restaurant_id)  # render_template('menu.html', menu_items=items)
+    menu_items = session.query(MenuItem).filter_by(restaurant_id=restaurant_id).all()
+    return render_template('menu.html', menu_items=menu_items)
 
 
 # create a new menu item
@@ -85,9 +86,10 @@ def newMenuItem(restaurant_id):
 
 
 # edit a menu item
-@app.route('/restaurants/<int:restaurant_id>/menu/edit')
-def editMenuItem(restaurant_id):
-    return render_template('editMenuItem.html')
+@app.route('/restaurants/<int:restaurant_id>/menu/<int:menu_id>/edit', methods=['GET', 'POST'])
+def editMenuItem(restaurant_id, menu_id):
+    menu_item = session.query(MenuItem).filter_by(restaurant_id=restaurant_id, id=menu_id).all()
+    return render_template('editMenuItem.html', item=menu_item)
 
 
 # delete a menu item

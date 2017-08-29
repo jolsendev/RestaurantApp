@@ -10,8 +10,8 @@
  <form action="{{url_for('editRestaurant', restaurant_id = restaurant_id)}}" method='post'>
 
         <dl>
-            <dt>New Restaurant name:</dt>
-            <input type='text' size='30' name='name'>
+            <dt>Update Restaurant</dt>
+            <input type='text' size='30' name='name'placeholder="{{restaurant_name}}">
         </dl>
 
      <input type="submit" value="Create">

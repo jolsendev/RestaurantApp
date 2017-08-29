@@ -7,14 +7,14 @@
 <body>
 <h1>New Restaurant</h1>
 
- <form action="#" method='post'>
+ <form action="{{url_for('newRestaurant')}}" method='POST'>
 
         <dl>
-            <dt>Nre Restaurant name:</dt>
-            <dd><input type='text' size='30' name='name'></dd>
+            <dt>Restaurant name:</dt>
+            <input type='text' size='30' name='name'>
         </dl>
 
-     <input type="button" value="Create">
+     <input type="submit" value="Create">
 
  </form>
 

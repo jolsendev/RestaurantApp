@@ -7,12 +7,12 @@
 <body>
 <h1>Delete Restaurant</h1>
 
-        <dl>
-            <dt>Delete Menu Item:</dt>
-            <dd><input type='text' size='30' name='name'></dd>
-        </dl>
+<form action="{{ url_for('deleteRestaurant',restaurant_id = restaurant.id)}}" method='post'>
+    <dl>
+        <dt>Delete {{restaurant.name}}</dt>
+    </dl>
 
-     <input type="button" value="Delete">
-
+    <input type="submit" value="Delete">
+</form>
 </body>
 </html>

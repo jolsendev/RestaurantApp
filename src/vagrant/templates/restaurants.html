@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
 <h1>My Restaurant App</h1>
-<a href = '#'>Create a new restaurant</a>
-{% for restaurant in restaurants %}
-    <p>{{restaurant.name}}</p>
-    <a href = '#'>Edit Restaurant</a></br>
-    <a href = '#'>Delete Restaurant</a>
-{% endfor %}
+<a href="{{url_for('newRestaurant')}}">Create a new restaurant</a>
+
+<div class='flash'>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+        <li><strong> {{ message }} </strong></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+</div>
+<div class="container-fluid bg-3 text-center">
+    <div class="row">
+        {% for restaurant in restaurants %}
+        <div class="col-sm-4">
+            <p>{{restaurant.name}}</p>
+            <a href="{{url_for('showMenu', restaurant_id = restaurant.id) }}">
+                <img src="/static/cat.jpg" alt="Image" width="350" height="300">
+            </a></br>
+            <a href="{{url_for('editRestaurant', restaurant_id = restaurant.id) }}">Edit Restaurant</a></br>
+            <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id, restaurant_name = restaurant.name) }}">Delete Restaurant</a></br></br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 
 </body>
 </html>

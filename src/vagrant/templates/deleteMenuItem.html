@@ -6,13 +6,14 @@
 </head>
 <body>
 <h1>Delete Menu Item</h1>
+<form action="{{url_for('deleteMenuItem', menu_id=item.id, restaurant_id=item.restaurant_id ) }}" method="POST">
+    <dl>
+        <dt>Delete {{item.name}}:</dt>
+    </dl>
 
-        <dl>
-            <dt>Delete Menu Item:</dt>
-            <dd><input type='text' size='30' name='name'></dd>
-        </dl>
+    <input type="submit" value="Delete">
 
-     <input type="button" value="Delete">
+</form>
 
 
 </body>

@@ -8,38 +8,37 @@
 <h1>Edit Menu Item</h1>
 </body>
 
-<form action="#" method="POST">
+<form action="{{url_for('editMenuItem', menu_id=item.id, restaurant_id=item.restaurant_id ) }}" method="POST">
 
     <dl>
         <dt>Menu Item Name:</dt>
-        <input type="text" size="30" name="menuItemName" placeholder="{{item.name}}">
+        <input type="text" size="30" name="name" placeholder="{{item.name}}">
     </dl>
     <dl>
         <dt>Description:</dt>
-        <input type="text" size="30" name="description" placeholder="{{item.description}}">
+        <textarea rows="4" cols="50" name="description" placeholder="{{item.description}}"></textarea>
     </dl>
     <dl>
         <dt>Price:</dt>
         <input type="text" size="30" name="price" placeholder="{{item.price}}">
     </dl>
-    <p>{{item.name}}</p>
     <dl>
         <dt>Course:</dt>
-        {% if item.course == "appetiser"%}<input type="radio" name="course" value="appetiser" checked> Appetiser<br>
+        {% if item.course == "Appetiser"%}<input type="radio" name="course" value="Appetiser" checked> Appetiser<br>
         {% else %}<input type="radio" name="course" value="appetiser"> Appetiser<br> {% endif %}
 
-        {% if item.course == "entree"%}<input type="radio" name="course" value="entree" checked> Entree<br>
+        {% if item.course == "Entree"%}<input type="radio" name="course" value="Entree" checked> Entree<br>
         {% else %}<input type="radio" name="course" value="entree"> Entree<br> {% endif %}
 
-        {% if item.course == "dessert"%}<input type="radio" name="course" value="dessert" checked> Dessert<br>
+        {% if item.course == "Dessert"%}<input type="radio" name="course" value="Dessert" checked> Dessert<br>
         {% else %}<input type="radio" name="course" value="dessert"> Dessert<br>{% endif %}
 
-        {% if item.course == "beverage"%}<input type="radio" name="course" value="beverage" checked> Beverage<br>
+        {% if item.course == "Beverage"%}<input type="radio" name="course" value="Beverage" checked> Beverage<br>
         {% else %}<input type="radio" name="course" value="beverage"> Beverage<br> {% endif %}
 
     </dl>
 
-    <input type="button" value="Create">
+    <input type="submit" value="Update">
 </form>
 
 

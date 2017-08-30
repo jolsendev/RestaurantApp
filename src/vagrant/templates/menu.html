@@ -13,9 +13,8 @@
     <p>{{menu_item.description}}</p>
     <p>{{menu_item.price}}</p>
     <p>{{menu_item.course}}</p>
-    <p>{{menu_item.id}}</p>
-    <p>{{menu_item.restaurant_id}}</p>
     <a href="{{url_for('editMenuItem', menu_id=menu_item.id, restaurant_id=menu_item.restaurant_id ) }}">Edit Menu Item</a></br>
+    <a href="{{url_for('deleteMenuItem', menu_id=menu_item.id, restaurant_id=menu_item.restaurant_id ) }}">Delete Menu Item</a></br>
 
 {% endfor %}
 </body>
